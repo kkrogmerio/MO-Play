@@ -1,0 +1,85 @@
+.border{
+    width: 40vw;
+    height:40vh;
+    position: relative;
+    top:30px;
+    background-color:mediumaquamarine;
+    overflow: hidden;
+    border:2px solid black;
+    left:calc(50% - 20vw);
+    box-shadow: 1px 1px 7px 1px #095d64;
+
+}
+.border2{
+
+    width: 58vw;
+    min-height: 300px;
+    position: relative;
+    margin-top: 5%;
+    background-color:mediumaquamarine;
+    overflow: hidden;
+    border:2px solid black;
+    left:calc(50% - 29vw);
+    box-shadow: 1px 1px 7px 1px #095d64;
+
+
+}
+.output{
+    width: 58vw;
+    position: relative;
+
+    height: auto;
+
+
+    background-color:mediumaquamarine;
+
+
+    box-shadow: 1px 1px 7px 1px #095d64;
+
+}
+.previewArea{
+    background-color: rgba(15, 100, 62, 0.09);
+
+    left:calc(50% - 20vw);
+
+    width:100%;
+    height: 100%;
+
+
+
+
+}
+
+.fa-arrows-alt:hover{
+    color:greenyellow;
+}
+.frameChanged{
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:2;
+    width:100%;
+    height:100vh;
+}
+.toolbar{
+    margin:0;
+    z-index: 4;
+    width:103%;
+    background-color: #146458;
+    display:block;
+    color: rgb(13, 11, 24);
+    font-size:25px;
+
+
+}
+.toolbar2{
+    margin:0;
+    z-index: 4;
+    width:135%;
+    background-color: #146458;
+    display:block;
+    color: rgb(13, 11, 24);
+    font-size:25px;
+
+}
+

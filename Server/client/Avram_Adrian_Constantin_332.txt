@@ -1,0 +1,681 @@
+
+
+//HomeController.cs
+using EXAM.Data;
+using Microsoft.AspNetCore.Mvc;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace IdentityExample.Models
+{
+    public class HomeController : Controller
+    {
+        private readonly AppDbContext _context;
+
+        public HomeController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Probas
+        public IActionResult Index()
+        {  
+            return RedirectToAction("Index","Poezii");
+        }
+    }
+}
+//PoeziiController.cs
+using System;
+
+
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+using EXAM.Data;
+using EXAM.Models;
+
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace IdentityExample.Models
+{
+    public class PoeziiController : Controller
+    {
+        private readonly AppDbContext _context;
+
+        public PoeziiController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+
+        public async Task<IActionResult> Index()
+        {  if(_context.volums.Count()==0&&_context.poezii.Count()==0){
+            var volum1=new Volum{denumire="Onestii"};
+            var volum2=new Volum{denumire="Visatorii"};
+            var volum3=new Volum{denumire="Intelectualul"};
+            _context.Add(volum1);
+            _context.Add(volum2);
+            _context.Add(volum3);
+             _context.SaveChanges();
+            _context.Add(new Poezie{titlu="Vestea",autor="Stefan Pintilie",nrStrofe=12,volum=volum1,idVolum=1});
+            _context.Add(new Poezie{titlu="Cunoasterea adevarului",autor="Basarab Mihai",nrStrofe=13,volum=volum1,idVolum=1});
+            _context.Add(new Poezie{titlu="Viata vesnica",autor="Mocea Alin",nrStrofe=14,volum=volum2,idVolum=2});
+            _context.Add(new Poezie{titlu="Dincolo de moarte",autor="Cristescu Vlad",nrStrofe=15,volum=volum2,idVolum=2});
+            _context.Add(new Poezie{titlu="Intelepciunea tacerii",autor="Avram Adrian",nrStrofe=16,volum=volum3,idVolum=3});
+            _context.Add(new Poezie{titlu="Credinta ",autor="Patran Eduard",nrStrofe=17,volum=volum3,idVolum=3});
+
+          
+           
+            _context.SaveChanges();
+        }
+           return View();
+        }
+        public IActionResult Ruta1(){
+                return View();
+        }
+        public IActionResult Ruta2(){
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Ruta1(string titlu){
+                var listaPoezii=_context.poezii.Where(ds=>ds.titlu.Contains(titlu)).ToList();
+                return View();
+        }
+        [HttpPost]
+        public IActionResult Ruta2(string volum){
+            var listaPoezii=_context.poezii.Include(ds=>ds.volum).Where(ds=>ds.volum.denumire.Contains(volum)).ToList();
+                return View();
+        }
+         public IActionResult Details(){
+             return View();
+         }
+        [HttpPost]
+        public IActionResult Details(CautaPoezie cauta)
+        {   if(ModelState.IsValid){
+                var poezii=_context.poezii.Include(m=>m.volum);
+                poezii=(IQueryable<Poezie>)poezii.Where(DS=>DS.volum.denumire.Contains(cauta.volum)).ToList();
+                poezii=(IQueryable<Poezie>)poezii.Where(DS=>DS.titlu.Contains(cauta.titlu)).ToList();
+                if (poezii.Count() == 0||poezii ==null)
+            {
+                return NotFound();
+            }
+            return View(poezii);
+
+        }
+         
+            return View();
+        }
+        public IActionResult Afiseaza(){
+            var poezii=_context.poezii.ToList();
+            var afiseazaPoezii=new List<(Poezie,string)>();
+            foreach(var poezie in poezii){
+                Console.WriteLine("BRRRRRRRRRRRRR  "+poezie.idVolum);
+                afiseazaPoezii.Add((poezie,_context.volums.Where(m=>m.id==poezie.idVolum).FirstOrDefault().denumire));
+            }
+            return View(afiseazaPoezii);
+        }
+        public IActionResult Formular(){
+            return View();
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("id,titlu,autor,nrStrofe,idVolum")] Poezie poezie)
+        {
+            if (ModelState.IsValid)
+            {   
+                _context.Add(poezie);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(poezie);
+        }
+
+       
+        public IActionResult Edit()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id,[Bind("titlu,autor,nrStrofe,idVolum")] Poezie poezie)
+        {
+            if (id != poezie.id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(poezie);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PoezieExists(poezie.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(poezie);
+        }
+
+        public IActionResult Delete()
+        {
+            
+
+            return View();
+        }
+        
+
+      
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmed(int? id)
+        {  if (id == null)
+            {
+                return RedirectToAction(nameof(Delete));
+            }
+            var poezie = await _context.poezii.FindAsync(id);
+             if (poezie == null)
+            {
+                return NotFound();
+            }
+            _context.poezii.Remove(poezie);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool PoezieExists(int id)
+        {
+            return _context.poezii.Any(e => e.id == id);
+        }
+    }
+}
+//DbContext.cs
+
+
+using EXAM.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace EXAM.Data{
+    public class AppDbContext:IdentityDbContext{
+        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        {
+            
+        }
+      
+        public DbSet<Poezie> poezii{get;set;}
+         public DbSet<Volum> volums{get;set;}
+  
+      
+    }
+}
+
+//CautaPoezie.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace EXAM.Models{
+    public class CautaPoezie{
+        [Display(Name = "titlul poeziei:")]
+        [Required]
+        public string titlu;
+        [Display(Name = "volumul poeziei")]
+        [Required]
+        public string volum;
+        
+    }
+}
+
+//Poezie.cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace EXAM.Models
+{
+    public class Poezie
+    {
+        [Key]
+        public int id { get; set; }
+        [Display(Name = "Titlul:")]
+        [MaxLength(20)]
+        [Required]
+        public string titlu { get; set; }
+        [Display(Name = "Autorul:")]
+        [Required]
+        public string autor { get; set; }
+        [Display(Name = "Nr strofe::")]
+        [Required]
+        public int nrStrofe { get; set; }
+        public Volum volum{get;set;}
+        [ForeignKey("Volum")]
+        public int idVolum;
+        
+
+    }
+
+}
+
+//Volum.cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace EXAM.Models
+{
+    public class Volum
+    {
+        [Key]
+        public int id { get; set; }
+        [Display(Name = "Denumire volum:")]
+        [MaxLength(20)]
+        [Required]
+        public string denumire { get; set; }
+        public List<Poezie> poezii{get;set;}
+
+        
+        
+
+        
+      
+
+    }
+
+}
+
+//Toate View/Poezii
+@*Afiseaza.cshtml*@
+
+ @model List<(EXAM.Models.Poezie,string)>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Item1.titlu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Item1.autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Item1.nrStrofe.ToString())
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Item2)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.Display(item.Item1.autor)
+            </td>
+            <td>
+                @Html.Display(item.Item1.titlu)
+            </td>
+            <td>
+                @Html.Display(item.Item1.nrStrofe.ToString())
+            </td>
+            <td>
+                @Html.Display(item.Item2)
+            </td>
+           
+     
+        </tr>
+}
+    </tbody>
+</table> 
+@*Create.cshtml*@
+ @model EXAM.Models.Poezie
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Poezie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="titlu" class="control-label"></label>
+                <input asp-for="titlu" class="form-control" />
+                <span asp-validation-for="titlu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="autor" class="control-label"></label>
+                <input asp-for="autor" class="form-control" />
+                <span asp-validation-for="autor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nrStrofe" class="control-label"></label>
+                <input asp-for="nrStrofe" class="form-control" />
+                <span asp-validation-for="nrStrofe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idVolum" class="control-label"></label>
+                <input asp-for="idVolum" class="form-control" />
+                <span asp-validation-for="idVolum" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@*Delete.cshtml*@
+ @using (Html.BeginForm("DeleteConfirmed", "Poezii",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+ {
+     <div class="form-group">
+                        @Html.Label("id","Introduceti id:", new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8 h-30">
+                            @Html.TextArea("id", new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit message" class="btn btn-default" />
+                        </div>
+                    </div>
+                    </div>
+ }
+
+ 
+@*Details.cshtml*@
+ @model List<EXAM.Models.Poezie>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].titlu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].nrStrofe.ToString())
+            </th>
+            
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.Display(item.autor)
+            </td>
+            <td>
+                @Html.Display(item.titlu)
+            </td>
+            <td>
+                @Html.Display(item.nrStrofe.ToString())
+            </td>
+       
+           
+     
+        </tr>
+}
+    </tbody>
+</table> 
+
+@*Edit.cshtml*@
+ @model EXAM.Models.Poezie
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Poezie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="titlu" class="control-label"></label>
+                <input asp-for="titlu" class="form-control" />
+                <span asp-validation-for="titlu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="autor" class="control-label"></label>
+                <input asp-for="autor" class="form-control" />
+                <span asp-validation-for="autor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nrStrofe" class="control-label"></label>
+                <input asp-for="nrStrofe" class="form-control" />
+                <span asp-validation-for="nrStrofe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idVolum" class="control-label"></label>
+                <input asp-for="idVolum" class="form-control" />
+                <span asp-validation-for="idVolum" class="text-danger"></span>
+            </div>
+     
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+ 
+@*Formular.cshtml*@
+@model EXAM.Models.CautaPoezie
+ @using (Html.BeginForm("Details", "Poezii",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+ {
+     <div class="form-group">
+                       <div class="form-group">
+                         @Html.LabelFor(m=>m.titlu, new { @class = "col-md-5 control-label" }) 
+                        <div class="col-md-8 h-30">
+                         @Html.TextAreaFor(m=>m.titlu, new { @class = "form-control"}) 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                         @Html.LabelFor(m=>m.volum, new { @class = "col-md-5 control-label" }) 
+                        <div class="col-md-8 h-30">
+                         @Html.TextAreaFor(m=>m.volum, new { @class = "form-control"}) 
+                        </div>
+                    </div>
+                        <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit message" class="btn btn-default" />
+                        </div>
+                    </div>
+                    </div>
+ }
+
+@*Index.cshtml*@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/myfile3.css" type="text/css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Poezii</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+  </head>
+    
+  <body>
+      <table class="table table-dark" style="font-size:20px;">
+    <tbody>
+      <tr>
+      <th scope="row">@Html.ActionLink("Ruta1","Ruta1","Poezii")</th>
+
+    </tr>
+    <tr>
+      <th scope="row">@Html.ActionLink("Ruta2","Ruta2","Poezii")</th>
+
+    </tr>
+    <tr>
+      <th scope="row">@Html.ActionLink("Formular","Formular","Poezii")</th>
+
+    </tr>
+    <tr>
+      <th scope="row">@Html.ActionLink("Insereaza poezie","Create","Poezii")</th>
+
+    </tr>
+    <tr>
+      <th scope="row">@Html.ActionLink("Sterge poezie","Delete","Poezii")</th>
+
+    </tr>
+    <tr>
+      <th scope="row">@Html.ActionLink("Ediiteaza poezie","Edit","Poezii")</th>
+
+    </tr>
+    
+    <tr>
+      <th scope="row">@Html.ActionLink("Afiseaza poeziile","Afiseaza","Poezii")</th>
+
+    </tr>
+  </tbody>
+     
+  </body>
+</html>
+
+@*Ruta1*@
+@model string
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Ruta1";
+}
+
+<h1>Ruta1</h1>
+
+<h4>Poezie</h4>
+<hr />
+@using (Html.BeginForm("Ruta1", "Poezii",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+ {
+     <div class="form-group">
+                        @Html.Label("titlu","Introduceti titlu:", new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8 h-30">
+                            @Html.TextArea("titlu", new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit message" class="btn btn-default" />
+                        </div>
+                    </div>
+                    </div>
+ }
+ 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@*Ruta2*@
+@model EXAM.Models.Poezie
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Ruta2";
+}
+
+<h1>Ruta2</h1>
+
+<h4>Poezie</h4>
+<hr />
+@using (Html.BeginForm("Ruta2", "Poezii",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+ {
+     <div class="form-group">
+                        @Html.Label("volum","Introduceti volum:", new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8 h-30">
+                            @Html.TextArea("volum", new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit message" class="btn btn-default" />
+                        </div>
+                    </div>
+                    </div>
+ }
+ 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div><
+
+
+
+
+
+
+
+
+
+
+

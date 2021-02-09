@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="696f2091-89ea-4a6f-a810-45cf45c8c93f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Server/client/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/.eslintcache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/public/Videos/Bellanima.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/public/assets/auth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/public/assets/forget.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/public/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/public/assets/reset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/public/assets/update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/public/assets/welcome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Appt.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Helpers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Screens/Activate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Screens/Forget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Screens/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Screens/Register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Screens/Reset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/Screens/Welcome.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/SecondApp/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/SecondApp/App2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/SecondApp/left-quote.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/SecondApp/randomized-quotes/Randomized.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/SecondApp/randomized-quotes/Randomized.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/SecondApp/randomized-quotes/randomizedSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/js-calculator/Calculator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/js-calculator/Calculator.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/js-calculator/CalculatorSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/js-calculator/Keyboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/js-calculator/LowGrid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/js-calculator/Square.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/ThirdApp/js-calculator/Toolbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/assets/auth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/assets/forget.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/assets/reset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/assets/update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/client/src/assets/welcome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Server/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/client/src/setupTests.js" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Server/client" />
+  </component>
+  <component name="ProjectId" id="1nz9j4V8eL3PIX6WHcm9bQTTdww" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="696f2091-89ea-4a6f-a810-45cf45c8c93f" name="Default Changelist" comment="" />
+      <created>1612382183728</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612382183728</updated>
+      <workItem from="1612382184953" duration="9000" />
+      <workItem from="1612389580836" duration="58000" />
+      <workItem from="1612392464192" duration="1466000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

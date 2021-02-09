@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="74e1d1c5-276b-4cf7-af84-a572164cf674" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.eslintcache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/Videos/Bellanima.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/assets/auth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/assets/forget.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/assets/reset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/assets/update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/assets/welcome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Appt.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Helpers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Screens/Activate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Screens/Forget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Screens/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Screens/Register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Screens/Reset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Screens/Welcome.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/SecondApp/ALIVE - Canada 4K.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/SecondApp/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/SecondApp/App2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/SecondApp/left-quote.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/SecondApp/randomized-quotes/Randomized.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/SecondApp/randomized-quotes/Randomized.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/SecondApp/randomized-quotes/randomizedSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/js-calculator/Calculator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/js-calculator/Calculator.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/js-calculator/CalculatorSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/js-calculator/Keyboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/js-calculator/LowGrid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/js-calculator/Square.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ThirdApp/js-calculator/Toolbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/MoPlay.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/auth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/forget.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/reset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/welcome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/setupTests.js" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
+  </component>
+  <component name="ProjectId" id="1nLEujSfQFOIqwRdLDCf1IrPxtf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="11" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Markdown Previewer" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Avram\Desktop\Server\folder2\client\src\SecondApp" />
+      <recent name="C:\Users\Avram\Desktop\Server\client\src\ThirdApp" />
+      <recent name="C:\Users\Avram\Desktop\Server\client\src" />
+      <recent name="C:\Users\Avram\Desktop\Server\client\public\assets" />
+      <recent name="C:\Users\Avram\Desktop\Server\client" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Avram\Desktop\Server\client\src" />
+      <recent name="C:\Users\Avram\Desktop\Server\client\src\assets" />
+      <recent name="C:\Users\Avram\Desktop\Server\client\public\Videos" />
+      <recent name="C:\Users\Avram\Desktop\Server\client\public" />
+      <recent name="C:\Users\Avram\Desktop\Server\client\src\Helpers" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74e1d1c5-276b-4cf7-af84-a572164cf674" name="Default Changelist" comment="" />
+      <created>1611161194470</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611161194470</updated>
+      <workItem from="1611161195704" duration="124000" />
+      <workItem from="1611161426054" duration="86919000" />
+      <workItem from="1612000900830" duration="30824000" />
+      <workItem from="1612045398514" duration="2176000" />
+      <workItem from="1612090367310" duration="990000" />
+      <workItem from="1612091409021" duration="37000" />
+      <workItem from="1612091455548" duration="24000" />
+      <workItem from="1612091512258" duration="5861000" />
+      <workItem from="1612382195854" duration="6465000" />
+      <workItem from="1612388690291" duration="816000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
