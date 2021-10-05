@@ -1,0 +1,73 @@
+$styles:(style1:desert,style2:aquamarined,style3:night);
+@mixin made-style($choice){
+    @if $choice==desert{
+        background-color:#ED8E4A;
+        color:#EDC9AF;
+        border: 3px solid yellow;
+    }
+    @else if $choice==aquamarined{
+        background-color: aqua;
+        color:darkorange;
+        border: 3px solid blue;
+    }
+    @else if $choice==night{
+        background-color: #6B4984;
+        color:#141852;
+        border: 3px solid black;
+    }
+}
+@each $key,$style in $styles {
+    .#{$key}-randomized{
+        width: 40vw;
+        height:40vh;
+        position:absolute;
+        top:30%;
+        z-index: 2;
+        right:calc(50% - 20vw);
+        text-align:center;
+        border-radius:25px;
+        @include made-style($style);
+        }
+}
+#transitionQuote {
+    left: calc(50% - 30px); height:60px; width:60px; position:relative; top:calc(50% - 30px)
+}
+@media(prefers-reduced-motion: no-preference){
+    .transition1{
+        animation: Initiation 4s;
+        animation-fill-mode: forwards;
+    }
+    .transition2{
+        animation: App-logo-float 4s;
+    }
+
+}
+@keyframes App-logo-float {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(100px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 0.3;
+    }
+}
+@keyframes Initiation {
+    0% {
+
+        opacity: 1;
+    }
+    50% {
+
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.3;
+        z-index:-4;
+
+    }
+}
