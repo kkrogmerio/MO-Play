@@ -12,7 +12,7 @@ const Welcome = () => {
   const [username, setUsername] = useState("");
 
   setTimeout(()=>{  if (localStorage.getItem("onceWelcome") != null)
-    localStorage.removeItem("onceWelcome");},7000)
+    localStorage.removeItem("onceWelcome");},1000)
   
 
   
