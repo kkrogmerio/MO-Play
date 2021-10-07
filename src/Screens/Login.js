@@ -133,6 +133,7 @@ const Login = ({history}) => {
                                     href='/register'
                                     target='_self'
                                 >
+                                
                                     <i className='fas fa-sign-in-alt fa 1x w-6  -ml-2 text-indigo-500' />
                                     <span className='ml-4'>Sign Up</span>
                                 </a>

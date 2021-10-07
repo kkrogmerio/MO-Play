@@ -1,7 +1,7 @@
-import React,{useState,Component} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
-import {authenticate,isAuth,signout} from "../../Helpers/auth";
-import {Link,Redirect} from 'react-router-dom';
+import {isAuth} from "../../Helpers/auth";
+import {Redirect} from 'react-router-dom';
 
 import $ from 'jquery';
 
@@ -12,7 +12,7 @@ import{
 } from "./markerSlice";
 import './Marker.css'
 
-let marked=require("marked");
+
 export class Marker extends React.Component{
 
 
@@ -44,8 +44,8 @@ export class Marker extends React.Component{
     componentDidMount() {
 
         $('.toolbar2').css('width',$('.output').width()).css('top',$('.output').position().top-$('.toolbar2').height()+'px').css('left',$('.output').position().left+'px');
-        $('.border2').css('top',$('.output').position().top-$('.toolbar2').height()-2+'px');//.css('height',this.state.heightBorder2+$('.toolbar2').height()+'px');
-        this.setState({heightBorder2:$('.output').height()+$('.toolbar2').height()})
+        $('.border2').css('top',$('.output').position().top-$('.toolbar2').height()-2+'px');
+      
         $('.chg1').click(function(){
             $('.border').toggleClass('frameChanged');
             if($('.fa').hasClass('fa-arrows-alt'))
@@ -72,7 +72,7 @@ export class Marker extends React.Component{
                     <div className="toolbar" style={{display:'flex',padding:"5px"}}>
                         <i className="fa fa-edit" style={{marginLeft:5}}/>
                         <strong style={{marginLeft:2,}}><label htmlFor="preview"><span style={{fontSize:"20px"}}>Editor</span></label></strong>
-                        <i className="fa fa-arrows-alt fa-1x" style={{position:"absolute",top:"6px",right:"5px"}}/>
+                        <i className="fa fa-arrows-alt fa-1x chg1" style={{position:"absolute",top:"6px",right:"5px"}}/>
                     </div>
 
                     <script>
@@ -85,7 +85,7 @@ export class Marker extends React.Component{
                         <textarea placeholder="Enter markdown"     value={this.state.input}
                                   onChange={(event) => {
                                       {this.setInput(event.target.value);this.setOutput(event.target.value)}
-                                      {this.setHeight($('.output').height() + $('.toolbar2').height())}
+                                     
                                   }} id="preview" className="previewArea"/>
 
 
@@ -112,6 +112,7 @@ export class Marker extends React.Component{
     }
 }
 class Border2 extends React.Component{
+    // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
 

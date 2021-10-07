@@ -101,7 +101,7 @@ const Keyboard=props=>{
         for (let i=0;i<numAreas;++i)
         {
             if(i!==lowGridIndex)
-                divs.push(<Square id={"action-"+i} content={i} onClick={()=>trigger(i)}/> );
+                divs.push(<Square id={"action-"+i}  onClick={()=>trigger(i)}/> );
             else{
                 divs.push(<LowGrid id={"action-"+i} numSquares={numNumbers} addToNum={addToNum}/> )
             }

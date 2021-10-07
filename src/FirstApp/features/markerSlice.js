@@ -12,7 +12,7 @@ export const markerSlice=createSlice({
         updateOutput:(state,action) => {
 
             state.output=action.payload;
-            console.log(state.output);
+            
         },
     },
 

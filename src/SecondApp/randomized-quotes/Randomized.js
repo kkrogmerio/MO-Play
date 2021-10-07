@@ -19,7 +19,8 @@ export function Randomize(){
     return(
         <div style={{margin:"0"}}>
             {!isAuth() ? <Redirect to='/' /> : null}
-            <div className={'style'+clasS.valueOf()+'-randomized'}>
+            <div className={'style'+clasS.valueOf()+'-randomized transition1'}>
+            <img src={image} alt="loading..." id={"transitionQuote"} className={"transition2"}/>
             <div style={{display:"inline-block",position:"relative",top:"50%"}}>
             <p style={{}}>
 
@@ -55,11 +56,12 @@ export function Randomize(){
                 </button>
                         </div>
             </div>
+            
             </div>
-            <div className={'style'+clasS.valueOf()+'-randomized'+" transition1"} style={{zIndex:"6"}}>
-                <img src={image} alt="loading..." id={"transitionQuote"} className={"transition2"}/>
+            {/* <div className={'style'+clasS.valueOf()+'-randomized'+" transition1"} > */}
+                
 
-            </div>
+            {/* </div> */}
 
         </div>
     )

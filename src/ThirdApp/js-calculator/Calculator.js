@@ -10,12 +10,7 @@ import{add,subtract,multiply,divide,clean,actioning,selectNumber,selectAction,eq
 export function MyCalculator(){
     const number=useSelector(selectNumber);
     const action=useSelector(selectAction);
-    const getNumber=function(){
-        return number;
-    };
-    const getAction=function(){
-        return action;
-    };
+
     const [value,setValue]=useState(0);
     const dispatch=useDispatch();
     return(

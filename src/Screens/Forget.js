@@ -21,7 +21,8 @@ const Forget = () => {
     const {email } = formData;
     const handleChange = text => e => {
         setFormData({ ...formData, [text]: e.target.value });
-    };
+    }; 
+    
     const handleSubmit = e => {
         e.preventDefault();
 
