@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCa } from "react";
 
 import axios from "axios";
 import cookie from "js-cookie";
@@ -11,26 +11,20 @@ import { getWelcome } from "../Helpers/auth";
 const Welcome = () => {
   const [username, setUsername] = useState("");
 
-  useEffect(() => {
-    if (localStorage.getItem("onceWelcome") != null) {
-      localStorage.setItem("onceWelcome", 0);
-    }
-    if (localStorage.getItem("onceWelcome") == null) {
-      localStorage.setItem("onceWelcome", 1);
-    }
-  }, []);
+  setTimeout(()=>{  if (localStorage.getItem("onceWelcome") != null)
+    localStorage.removeItem("onceWelcome");},7000)
+  
 
+  
   axios
-    .get(`${process.env.REACT_APP_API_URL}/getData`, {
-      withCredentials: true,
+    .post(`${process.env.REACT_APP_API_URL}/getData`, {
+      token:cookie.get("token")
     })
     .then((res) => {
 
       setUsername(res.data.name);
     });
-    console.log(localStorage.getItem("onceWelcome"));
-    console.log(username)
-    console.log(cookie.get("token"), localStorage.getItem("user"));
+
   return (
     <div>
       {!isAuth() ? <Redirect to="/" /> : null}

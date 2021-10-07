@@ -41,6 +41,7 @@ export const authenticate=(response, next)=>{
 
     setCookie('token',response.data.token);
     setLocalStorage('user',response.data.user);
+    setLocalStorage('onceWelcome',1);
     next();
 };
 export const signout=next=>{
