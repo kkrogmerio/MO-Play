@@ -25,10 +25,12 @@ const Welcome = () => {
       withCredentials: true,
     })
     .then((res) => {
+      console.log("DAAAAAAAAAAAAAAAAAAAAAAAA//");
+      console.log(res.data.name + "BRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
       setUsername(res.data.name);
     });
     console.log(localStorage.getItem("onceWelcome"));
-    console.log(username);
+    console.log(username)
   return (
     <div>
       {!isAuth() ? <Redirect to="/" /> : null}
