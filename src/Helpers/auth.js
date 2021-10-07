@@ -38,6 +38,7 @@ export const removeLocalStorage=key=>{
 };
 //Auth user after login
 export const authenticate=(response, next)=>{
+
     setCookie('token',response.data.token);
     setLocalStorage('user',response.data.user);
     next();

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import axios from "axios";
-
+import cookie from "js-cookie";
 import { isAuth, signout } from "../Helpers/auth";
 import { Link, Redirect } from "react-router-dom";
 
@@ -25,12 +25,12 @@ const Welcome = () => {
       withCredentials: true,
     })
     .then((res) => {
-      console.log("DAAAAAAAAAAAAAAAAAAAAAAAA//");
-      console.log(res.data.name + "BRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
+
       setUsername(res.data.name);
     });
     console.log(localStorage.getItem("onceWelcome"));
     console.log(username)
+    console.log(cookie.get("token"), localStorage.getItem("user"));
   return (
     <div>
       {!isAuth() ? <Redirect to="/" /> : null}
