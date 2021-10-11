@@ -10,9 +10,11 @@ import "../Appt.css";
 import { getWelcome } from "../Helpers/auth";
 const Welcome = () => {
   const [username, setUsername] = useState("");
+  useEffect(()=>{
+if (localStorage.getItem("onceWelcome") != null)
+    localStorage.removeItem("onceWelcome");
+  })
 
-  setTimeout(()=>{  if (localStorage.getItem("onceWelcome") != null)
-    localStorage.removeItem("onceWelcome");},1000)
   
 
   
