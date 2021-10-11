@@ -10,22 +10,20 @@ import "../Appt.css";
 import { getWelcome } from "../Helpers/auth";
 const Welcome = () => {
   const [username, setUsername] = useState("");
-  useEffect(()=>{
-      axios
-        .post(`${process.env.REACT_APP_API_URL}/getData`, {
-          token: cookie.get("token"),
-        })
-        .then((res) => {
-          setUsername(res.data.name);
-        });
-if (localStorage.getItem("onceWelcome") != null)
-    localStorage.removeItem("onceWelcome");
-  },[])
 
+  setTimeout(()=>{  if (localStorage.getItem("onceWelcome") != null)
+    localStorage.removeItem("onceWelcome");},1000)
   
 
   
+  axios
+    .post(`${process.env.REACT_APP_API_URL}/getData`, {
+      token:cookie.get("token")
+    })
+    .then((res) => {
 
+      setUsername(res.data.name);
+    });
 
   return (
     <div>
